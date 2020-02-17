@@ -1,0 +1,36 @@
+---
+title: Insert external images
+author: Alistair Fronhoffs
+date: '2020-02-14'
+slug: insert-external-images
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-14T19:21:32+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Sidestep: Including external images
+I need to include some screenshots and this should be easy peasy, but I have spent quite some time wrestling with this. Up untill then I was knitting the posts <code>.rmd</code> file, to check it’s html output. However inserting the image gave me an error (“file not found”). Because I’ve got this <code>.rdm</code> file in the website folder as a new post, I don’t have to knit it anymore but check the post in my Viewer where it is automatically updated every time I save the file ::smiley::<br></p>
+<p>So, just to show you, <strong>blogdown</strong> comes with addins, and I just had to choose “insert Image” in the addins menu.<br>
+It will insert code in the form of:<br>
+<code>![alternative text](path to file, starting from your /static folder)</code><br>
+<strong>Blogdown</strong> assumes the path is stated from your <code>static</code> folder
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/blogdown_addin_image.png" alt="addin insert image" />
+Or through Tools &gt; Addins &gt; Browse Addins:<br></p>
+<p><img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/tools_addins*.png" style="width:70.0%" alt="tools &gt; addins &gt; browse addins" />
+And then click the ‘Insert Image’ addin:
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/Addins_chooser.png" style="width:70.0%" alt="Addin Chooser" /></p>
+<p>Another possibility is using knitr’s function<br> <code>knitr::include_graphics()</code><br>
+The basic form would be <br><code>knitr::include_graphics(file to path starting from \static\)</code></p>
+<p>I heavily relied on Alison Presmanes Hill’s minimal <a href="https://blogdown-demo.rbind.io/2017/10/06/adding-figures-and-other-images-to-posts/">blogdown website</a>, so do check it out for more information !</p>

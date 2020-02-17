@@ -1,0 +1,39 @@
+---
+title: Insert external images
+author: Alistair Fronhoffs
+date: '2020-02-14'
+slug: insert-external-images
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-14T19:21:32+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+Sidestep: Including external images
+I need to include some screenshots and this should be easy peasy, but I have spent quite some time wrestling with this. Up untill then I was knitting the posts ```.rmd``` file, to check it's html output. However inserting the image gave me an error ("file not found"). Because I've got this ```.rdm``` file in the website folder as a new post, I don't have to knit it anymore but check the post in my Viewer where it is automatically updated every time I save the file ::smiley::<br>
+
+So, just to show you, **blogdown** comes with addins, and I just had to choose "insert Image" in the addins menu.<br>
+It will insert code in the form of:<br>
+```![alternative text](path to file, starting from your /static folder)```<br>
+**Blogdown** assumes the path is stated from your ```static``` folder
+![addin insert image](/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/blogdown_addin_image.png)
+Or through Tools > Addins > Browse Addins:<br>
+
+![tools > addins > browse addins](/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/tools_addins*.png){width=70%}
+And then click the 'Insert Image' addin:
+![Addin Chooser](/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/Addins_chooser.png){width=70%}
+
+
+
+Another possibility is using knitr's function<br> ```knitr::include_graphics()```<br> 
+The basic form would be <br>```knitr::include_graphics(file to path starting from \static\)``` 
+
+I heavily relied on Alison Presmanes Hill's minimal [blogdown website](https://blogdown-demo.rbind.io/2017/10/06/adding-figures-and-other-images-to-posts/), so do check it out for more information !
+

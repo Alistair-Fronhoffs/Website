@@ -1,0 +1,29 @@
+---
+title: Tweeking my website
+author: Alistair Fronhoffs
+date: '2020-02-14'
+slug: tweeking-my-website
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-14T19:40:35+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+Todo:
+
+- [ ] Check out [Alison Presmanes Hill's website](https://support.rbind.io/2017/06/16/academic-site-apreshill/) 
+
+[Use of emoticons](https://github.com/hadley/emo)<br>
+In installed ```devtools::install_github("hadley/emo")``` and use it with for example:
+```{r emoticons}
+emo::ji("smiley")
+```
+
+
