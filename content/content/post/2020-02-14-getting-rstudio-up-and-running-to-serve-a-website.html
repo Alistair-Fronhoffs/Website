@@ -1,0 +1,154 @@
+---
+title: Getting RStudio up and running to serve a website
+author: Alistair Fronhoffs
+date: '2020-02-17'
+slug: getting-rstudio-up-and-running-to-serve-a-website
+categories:
+  - Demo
+tags:
+  - Demo
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-17T17:17:28+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+output: 
+  blogdown::html_page:
+    toc: true
+    fig_caption: true
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#why">Why ?</a></li>
+<li><a href="#where-to-start">Where to start ?</a>
+<ul>
+<li><a href="#getting-to-know-git-better">Getting to know GIT better</a></li>
+<li><a href="#moving-on-to-connect-with-github">Moving on to connect with GitHub</a>
+<ul>
+<li><a href="#setting-up-credentials-and-making-them-permanent">Setting up credentials and making them permanent</a></li>
+</ul></li>
+<li><a href="#rstudio-git-github">RStudio, GIT &amp; GitHub</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="why" class="section level1">
+<h1>Why ?</h1>
+<p>Well, we’ve got a project, and would like to not only do it for ourselves but also share and showcase it !</p>
+<p>A number of steps are therefore:</p>
+<ul>
+<li>Work to be done at the project (quite logical :wink:)
+<ul>
+<li>Essentially in R, but Python and QGIS will probably be used also</li>
+<li>Using GitHub, Bitbucket,…to better collaborate</li>
+</ul></li>
+<li>Document the work done
+<ul>
+<li>Why not use RMarkdown ?</li>
+</ul></li>
+<li>Publish the documentation (not all at once)</li>
+<li>Publish the results, steps, parts of them
+<ul>
+<li>A website would be cool !</li>
+</ul></li>
+</ul>
+</div>
+<div id="where-to-start" class="section level1">
+<h1>Where to start ?</h1>
+<p>Well, that’s a good question, the project seems like a good start. But working on the project means to document it, and then…Git and a Website.
+So, I started a couple of days ago, reading the <a href="https://bookdown.org/yihui/blogdown/#">blogdown book</a> and watching some tutorials about RMarkdown (like <a href="https://www.linkedin.com/learning/creating-reports-and-presentations-with-r-markdown-and-rstudio/next-steps">this one on Linkedinlearn</a>). I also found the <a href="https://bookdown.org/yihui/rmarkdown/">RMarkdown book</a>. The <a href="https://bookdown.org">bookdown</a> site is really a good place with plenty of usefull information :smiley:</p>
+<p>So getting stuff on GitHub looks like a first step, and therefore installing GIT on our computer needs to be done also.</p>
+<div id="getting-to-know-git-better" class="section level2">
+<h2>Getting to know GIT better</h2>
+<p>I have GIT installed already, but not configured in R. Also, I was not totally friends with GIT, so I found <a href="https://happygitwithr.com/hello-git.html#hello-git">this Happy Git with R book</a>. And started at chapter 6, just to test that everything was fine:</p>
+<pre class="bash"><code>which git</code></pre>
+<pre><code>## /usr/bin/git</code></pre>
+<p>and</p>
+<pre class="bash"><code>git --version</code></pre>
+<pre><code>## git version 2.17.1</code></pre>
+<p>at the time of writing it gave me
+git version 2.17.1</p>
+<p>I followed their advise and configured git editor to use Geany (in case something goes wrong).</p>
+<pre class="bash"><code>git config --global core.editor &quot;geany&quot;</code></pre>
+</div>
+<div id="moving-on-to-connect-with-github" class="section level2">
+<h2>Moving on to connect with GitHub</h2>
+<p>I already have a GitHub account, if you haven’t it’s quick and easy to <a href="www.github.com">create one</a>.<br></p>
+<p>Install a GIT-client as explained in <a href="https://happygitwithr.com/git-client.html">Chapter 8</a>. Because I’m on a Linux machine, I installed the recommended <a href="https://www.gitkraken.com/">GitKraken</a> GIT-client. I played around a little and made a repo on GitHub through it. It all seems fine, but there’s a small catch, if you want to keep using the free version you can only use it fully with public repo’s.
+You can still use it to create a private repo, this might be an advantage if you want to do it from the app and not having to hop over to GitHub.</p>
+<p>Creating a repo, testing the connection, committing and pushing with the command line is nicely explained in <a href="https://happygitwithr.com/push-pull-github.html">Chapter 9</a> and I can’t add much to it. Follow the tutorial there, <em>but don’t clean up and remove your repo just yet</em>(9.6) you may need it in chapter 10, 11 or 12 when you’ll want to set up your git not to forget your credentials.</p>
+<div id="setting-up-credentials-and-making-them-permanent" class="section level3">
+<h3>Setting up credentials and making them permanent</h3>
+<p>There seem to be two ways to set up your git to avoid having to constantly enter your username and password for GitHub:</p>
+<ul>
+<li><a href="https://happygitwithr.com/hello-git.html">Chapter 7</a> with the command line:</li>
+</ul>
+<pre><code>git config --global user.name &#39;my GitHub username&#39;
+git config --global user.email &#39;my GitHub e-mail&#39;</code></pre>
+<ul>
+<li>Or install the <code>usethis</code> package (<code>install.packages('usethis')</code>) and use the following command:</li>
+</ul>
+<pre><code>use_git_config(user.name = &quot;My GitHub username&quot;, user.email = &quot;My GitHub e-mail&quot;)</code></pre>
+<p>Making those changes permanent can be done with the following command (see <a href="https://happygitwithr.com/credential-caching.html">Chapter 10</a>, for Linux scroll down to <strong>10.5.0.4 Linux</strong>):</p>
+<pre class="bash"><code>git config --global credential.helper &#39;cache --timeout=31536000&#39;</code></pre>
+<p>31536000 seconds is one year, and that seems fine to me</p>
+<p>Then test it with:</p>
+<pre class="bash"><code>echo &quot;adding a line&quot; &gt;&gt; README.md
+git add -A
+git commit -m &quot;A commit from my local computer&quot;</code></pre>
+<p>And then<br>
+<code>git push -u origin master</code><br>
+then, push again, hoping that I wouldn’t need to give my username and password…<br>
+<code>git push</code><br></p>
+<p>I don’t exclude that I might have to follow the guidelines for authentication via SSH as explained <a href="https://happygitwithr.com/ssh-keys.html#ssh-keys">here</a>).</p>
+<p>Also setting up &amp; getting a GitHub Personal Access Token (PAT) is interestingto create a repo directly from RStudio (see <a href="https://happygitwithr.com/github-pat.html#github-pat">appendix A</a> of the Happy Git with R book). I started at section B.3. Step by Step.
+I tried:</p>
+<pre><code>usethis::browse_github_pat()</code></pre>
+<p>and</p>
+<p>Generating a new token by following the link to GitHub: <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p>
+<p>It’s more or less the same, the first option has some checkboxes already filled in for you, and the console reminds you of the following steps:</p>
+<p><img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/api-token.png" alt="api token" />
+And nice reminder ::smiley::
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/console_PAT_next_steps_reminder.png" alt="Next steps reminder PAT console" /></p>
+</div>
+</div>
+<div id="rstudio-git-github" class="section level2">
+<h2>RStudio, GIT &amp; GitHub</h2>
+<p>On to <a href="https://happygitwithr.com/rstudio-git-github.html">Chapter 12</a>, to try and make everything work from within RStudio…<br>
+The first steps are quite easy to do : File &gt; New Project &gt; Version Control &gt; Git<br>
+(sidestep, <a href="/post/insert-external-images">how to insert images in blog</a>)
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/File_new_project.png" alt="File &gt; New project" />
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/version_control.png" alt="Version Control" />
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/gitproject.png" alt="Git Project" />
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/clonegit.png" alt="clone GIT" /></p>
+<p>So, now that the repo from GitHub is on the computer, it’s time to check if it’s possible to make some changes to a file, commit &amp; push it.
+Following the workflow in chapter 12.4:</p>
+<ul>
+<li>Add a line to README.md (e.g. "Adding a line from RStudio)</li>
+<li>Click the “Git” tab in upper right pane.</li>
+<li>Check “Staged” box for README.md.</li>
+<li>If you’re not already in the Git pop-up, click “Commit”.</li>
+<li>Type a message in “Commit message”, such as “Commit from RStudio”.</li>
+<li>Click “Commit”</li>
+<li>Now, Push and hope for success (see image below)</li>
+</ul>
+<p>A couple of screenshots can help clarifying this:</p>
+<p><img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/add_line_rstudio.png" alt="add line from RStudio" />
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/git-tab.png" alt="git tab" />
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/staged_box_readme.png" alt="staged box readme" />
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/commit.png" alt="commit" />
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/commit_from_Rstudio.png" alt="commit frolm RStudio" /></p>
+<p><img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/clicked_commit.png" alt="clicked commit" />
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/push_committed.png" alt="push committed" />
+<img src="/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/pushed_commit_success.png" alt="pushed commit success" /></p>
+<p>Everything seems great now to move on to the next part, creating a website locally with Hugo, making a couple of posts and publishing it ::open_mouth::</p>
+</div>
+</div>
