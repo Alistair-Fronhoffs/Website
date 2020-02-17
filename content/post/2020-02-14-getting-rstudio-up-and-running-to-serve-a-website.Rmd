@@ -1,7 +1,7 @@
 ---
 title: Getting RStudio up and running to serve a website
 author: Alistair Fronhoffs
-date: '2020-02-14'
+date: '2020-02-17'
 slug: getting-rstudio-up-and-running-to-serve-a-website
 categories:
   - Demo
@@ -10,7 +10,7 @@ tags:
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2020-02-14T18:47:28+01:00'
+lastmod: '2020-02-17T17:17:28+01:00'
 featured: no
 image:
   caption: ''
@@ -154,5 +154,5 @@ A couple of screenshots can help clarifying this:
 ![push committed](/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/push_committed.png)
 ![pushed commit success](/post/2020-02-14-getting-rstudio-up-and-running-to-serve-a-website_files/pushed_commit_success.png)
 
-
+Everything seems great now to move on to the next part, creating a website locally with Hugo, making a couple of posts and publishing it ::open_mouth::
 
